@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Label唯一的标识 -->
+  <key>Label</key>
+  <string>com.wallpaper.plist</string>
+  <!-- 指定要运行的脚本 -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>~/wallpaper/launch.sh</string>
+  </array>
+  <!-- 指定要运行的时间 -->
+  <key>StartCalendarInterval</key>
+  <dict>
+        <key>Minute</key>
+        <integer>00</integer>
+        <key>Hour</key>
+        <integer>10</integer>
+  </dict>
+<!-- 标准输出文件 -->
+<key>StandardOutPath</key>
+<string>~/wallpaper/run.log</string>
+<!-- 标准错误输出文件，错误日志 -->
+<key>StandardErrorPath</key>
+<string>~/wallpaper/run.err</string>
+</dict>
+</plist>
