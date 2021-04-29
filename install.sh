@@ -5,6 +5,9 @@ cd $CURPATH
 echo $CURPATH
 
 cp -f ./com.wallpaper.plist ~/Library/LaunchAgents/com.wallpaper.plist
+touch run.log
+touch run.err
+chmod a+x ./launch.sh
 
 cd ~/Library/LaunchAgents
 pwd

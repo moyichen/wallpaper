@@ -43,9 +43,9 @@ def download_momentumdash_wallpaper(filepath):
     with open(today_wallpaper, 'wb') as f:
         f.write(r.content)
     f.close()
-    return today_wallpaper
+    return today_wallpaper, "NA"
 
 
 if __name__ == '__main__':
-    today_wallpaper = download_momentumdash_wallpaper(os.path.expanduser('~/wallpaper/images'))
+    today_wallpaper, description = download_momentumdash_wallpaper(os.path.expanduser('~/wallpaper/images'))
     app('Finder').desktop_picture.set(mactypes.File(today_wallpaper))

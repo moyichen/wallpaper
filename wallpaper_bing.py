@@ -35,9 +35,9 @@ def download_bing_wallpaper(filepath):
         f.write(requests.get(url_img).content)
     print(fname)
     print(des)
-    return today_wallpaper
+    return today_wallpaper, des
 
 
 if __name__ == '__main__':
-    today_wallpaper = download_bing_wallpaper(os.path.expanduser('~/wallpaper/images'))
+    today_wallpaper, description = download_bing_wallpaper(os.path.expanduser('~/wallpaper/images'))
     app('Finder').desktop_picture.set(mactypes.File(today_wallpaper))
