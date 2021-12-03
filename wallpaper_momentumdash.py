@@ -5,6 +5,7 @@
 
 import os
 import time
+import re
 import requests
 from appscript import app, mactypes
 
@@ -35,6 +36,12 @@ def download_momentumdash_wallpaper(filepath):
     backgrounds = response['backgrounds']
     today_uri = backgrounds[0]['filename']
     tomorrow_uri = backgrounds[1]['filename']
+    
+    # today_uri=https://images.unsplash.com/photo-1506663728000-f68915a9e635?ixlib=rb-0.3.5&q=99&fm=jpg&crop=entropy&cs=tinysrgb&w=2048&fit=max&ixid=eyJhcHBfaWQiOjcwOTV9&s=e4467b100b98dd96d751b2dc331f5fad
+    # tomorrow_uri=https://images.unsplash.com/photo-1564858763975-d99de59ee4bb?ixlib=rb-1.2.1&q=99&fm=jpg&crop=entropy&cs=tinysrgb&w=2048&fit=max&ixid=eyJhcHBfaWQiOjcwOTV9
+    today_uri = re.sub('&w=\\d+&', '&w=3840&', today_uri)
+    tomorrow_uri = re.sub('&w=\\d+&', '&w=3840&', tomorrow_uri)
+    
     print('today_uri={today_uri}'.format(today_uri=today_uri))
     print('tomorrow_uri={tomorrow_uri}'.format(tomorrow_uri=tomorrow_uri))
     r = requests.get(today_uri)
